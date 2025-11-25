@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JbrainsAI - Your AI-Powered Business Companion</title>
+    <meta name="description" content="Discover and master AI tools that transform your business. Daily curated recommendations by Jbrain Solutions.">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#7D2A1F">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #7D2A1F;
+            --secondary: #FF8C42;
+            --background: #FFFFFF;
+            --text: #333333;
+            --light-bg: #F5F5F5;
+            --border: #E0E0E0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            background: var(--background);
+            line-height: 1.6;
+        }
+
+        .app-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 80px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary), #5A1F17);
+            color: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 8px;
+            padding: 4px;
+        }
+
+        .app-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .app-subtitle {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-around;
+            padding: 0.5rem 0;
+            z-index: 100;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s;
+            flex: 1;
+            border: none;
+            background: none;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            color: var(--primary);
+        }
+
+        .nav-icon {
+            font-size: 1.5rem;
+        }
+
+        .nav-label {
+            font-size: 0.7rem;
+        }
+
+        /* Pages */
+        .page {
+            display: none;
+            animation: fadeIn 0.3s;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Home Page */
+        .hero {
+            background: linear-gradient(135deg, var(--primary), #5A1F17);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .featured-section {
+            padding: 2rem 1rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .featured-tool {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border: 2px solid var(--secondary);
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .tool-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .tool-logo {
+            width: 60px;
+            height: 60px;
+            background: var(--light-bg);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .tool-info h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+        }
+
+        .tool-category {
+            display: inline-block;
+            background: var(--light-bg);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+        }
+
+        .tool-description {
+            margin: 1rem 0;
+            line-height: 1.6;
+        }
+
+        .tool-link {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: all 0.3s;
+        }
+
+        .tool-link:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        .category-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .category-card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Explore Page */
+        .search-bar {
+            padding: 1rem;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--border);
+            border-radius: 25px;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary);
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 0.5rem;
+            padding: 1rem;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .filter-tab {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 2px solid var(--border);
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-tab.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Learn Page */
+        .tutorials-section {
+            padding: 1rem;
+        }
+
+        .tutorial-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .tutorial-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .difficulty-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        .beginner { background: #4CAF50; color: white; }
+        .intermediate { background: #FF9800; color: white; }
+        .advanced { background: #F44336; color: white; }
+
+        /* Profile Page */
+        .profile-section {
+            padding: 1rem;
+        }
+
+        .company-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .company-logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1rem;
+            background: white;
+            border-radius: 12px;
+            padding: 1rem;
+        }
+
+        .services-list {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .service-item:last-child {
+            border-bottom: none;
+        }
+
+        .service-icon {
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+
+        .cta-button {
+            display: block;
+            background: var(--secondary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 1rem 0;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .contact-info {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .contact-item {
+            padding: 0.75rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">🧠</div>
+                    <div>
+                        <div class="app-title">JbrainsAI</div>
+                        <div class="app-subtitle">by Jbrain Solutions</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <div class="hero">
+                <h1>Discover AI Tools Daily</h1>
+                <p>Your AI-Powered Business Companion</p>
+            </div>
+
+            <div class="featured-section">
+                <h2 class="section-title">🌟 Featured Tool of the Day</h2>
+                <div class="featured-tool">
+                    <span class="featured-badge">⭐ Today's Pick</span>
+                    <div class="tool-header">
+                        <div class="tool-logo">🤖</div>
+                        <div class="tool-info">
+                            <h3>ChatGPT</h3>
+                            <span class="tool-category">Content Creation</span>
+                        </div>
+                    </div>
+                    <p class="tool-description">
+                        Revolutionary AI assistant that helps with content writing, customer support, brainstorming, coding, and more. Perfect for entrepreneurs looking to save time on repetitive tasks.
+                    </p>
+                    <p><strong>💰 Pricing:</strong> Free + Paid plans from $20/month</p>
+                    <p><strong>✨ Best For:</strong> Content creation, customer support, ideation</p>
+                    <a href="https://chat.openai.com" target="_blank" class="tool-link">Try ChatGPT →</a>
+                </div>
+            </div>
+
+            <div class="featured-section">
+                <h2 class="section-title">📂 Browse by Category</h2>
+                <div class="categories">
+                    <div class="category-card" onclick="showExplore('Design')">
+                        <div class="category-icon">🎨</div>
+                        <h3>Design</h3>
+                    </div>
+                    <div class="category-card" onclick="showExplore('Marketing')">
+                        <div class="category-icon">📢</div>
+                        <h3>Marketing</h3>
+                    </div>
+                    <div class="category-card" onclick="showExplore('Content')">
+                        <div class="category-icon">✍️</div>
+                        <h3>Content</h3>
+                    </div>
+                    <div class="category-card" onclick="showExplore('Development')">
+                        <div class="category-icon">💻</div>
+                        <h3>Development</h3>
+                    </div>
+                    <div class="category-card" onclick="showExplore('Productivity')">
+                        <div class="category-icon">⚡</div>
+                        <h3>Productivity</h3>
+                    </div>
+                    <div class="category-card" onclick="showExplore('All')">
+                        <div class="category-icon">🔍</div>
+                        <h3>View All</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Explore Page -->
+        <div id="explore" class="page">
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="🔍 Search AI tools..." oninput="searchTools(this.value)">
+            </div>
+
+            <div class="filter-tabs">
+                <button class="filter-tab active" onclick="filterTools('All')">All</button>
+                <button class="filter-tab" onclick="filterTools('Design')">Design</button>
+                <button class="filter-tab" onclick="filterTools('Marketing')">Marketing</button>
+                <button class="filter-tab" onclick="filterTools('Content')">Content</button>
+                <button class="filter-tab" onclick="filterTools('Development')">Development</button>
+                <button class="filter-tab" onclick="filterTools('Productivity')">Productivity</button>
+            </div>
+
+            <div id="tools-container" class="tools-grid">
+                <!-- Tools will be dynamically inserted here -->
+            </div>
+        </div>
+
+        <!-- Learn Page -->
+        <div id="learn" class="page">
+            <div class="featured-section">
+                <h2 class="section-title">📚 Learning Resources</h2>
+            </div>
+
+            <div class="tutorials-section">
+                <div class="tutorial-card">
+                    <h3>Getting Started with AI Tools</h3>
+                    <span class="difficulty-badge beginner">Beginner</span>
+                    <p>Learn the basics of AI tools and how to integrate them into your business workflow.</p>
+                    <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                        <li>Understanding AI capabilities</li>
+                        <li>Choosing the right tools</li>
+                        <li>First implementation steps</li>
+                    </ul>
+                </div>
+
+                <div class="tutorial-card">
+                    <h3>Content Creation with AI</h3>
+                    <span class="difficulty-badge beginner">Beginner</span>
+                    <p>Master AI-powered content creation for social media, blogs, and marketing.</p>
+                    <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                        <li>Writing engaging posts</li>
+                        <li>Creating visual content</li>
+                        <li>Content scheduling</li>
+                    </ul>
+                </div>
+
+                <div class="tutorial-card">
+                    <h3>AI for Customer Support</h3>
+                    <span class="difficulty-badge intermediate">Intermediate</span>
+                    <p>Set up AI chatbots and automation for 24/7 customer service.</p>
+                    <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                        <li>Chatbot setup</li>
+                        <li>Training AI responses</li>
+                        <li>Integration with existing systems</li>
+                    </ul>
+                </div>
+
+                <div class="tutorial-card">
+                    <h3>Marketing Automation</h3>
+                    <span class="difficulty-badge intermediate">Intermediate</span>
+                    <p>Automate your marketing campaigns with AI-powered tools.</p>
+                    <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                        <li>Email automation</li>
+                        <li>Social media scheduling</li>
+                        <li>Ad optimization</li>
+                    </ul>
+                </div>
+
+                <div class="tutorial-card">
+                    <h3>Advanced AI Integration</h3>
+                    <span class="difficulty-badge advanced">Advanced</span>
+                    <p>Build custom AI solutions for your specific business needs.</p>
+                    <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                        <li>API integration</li>
+                        <li>Custom workflows</li>
+                        <li>Data analysis</li>
+                    </ul>
+                </div>
+
+                <div class="tutorial-card" style="background: linear-gradient(135deg, var(--primary), #5A1F17); color: white;">
+                    <h3 style="color: white;">Need Personal Guidance?</h3>
+                    <p>Book a free consultation with Jbrain Solutions experts to create a customized AI implementation plan for your business.</p>
+                    <a href="tel:+918438271120" class="cta-button" style="margin-top: 1rem;">📞 Book Free Consultation</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Page -->
+        <div id="profile" class="page">
+            <div class="profile-section">
+                <div class="company-card">
+                    <div class="company-logo">🧠</div>
+                    <h2>Jbrain Solutions OPC Pvt Ltd</h2>
+                    <p style="margin: 1rem 0;">Empowering Your Digital Future with Business and Technical Expertise</p>
+                    <p><strong>Startup India & Startup TN Recognized</strong></p>
+                </div>
+
+                <div class="services-list">
+                    <h3 class="section-title">Our Services</h3>
+                    <div class="service-item">
+                        <span class="service-icon">🌐</span>
+                        <strong>Website & App Development</strong>
+                        <p>Custom websites and mobile apps for your business</p>
+                    </div>
+                    <div class="service-item">
+                        <span class="service-icon">💻</span>
+                        <strong>Software Development</strong>
+                        <p>Workflow automation and custom software solutions</p>
+                    </div>
+                    <div class="service-item">
+                        <span class="service-icon">📱</span>
+                        <strong>Digital Marketing</strong>
+                        <p>SEO, social media, and marketing automation</p>
+                    </div>
+                    <div class="service-item">
+                        <span class="service-icon">🎨</span>
+                        <strong>Branding & Design</strong>
+                        <p>Complete brand identity and visual design</p>
+                    </div>
+                    <div class="service-item">
+                        <span class="service-icon">🎓</span>
+                        <strong>Training & Webinars</strong>
+                        <p>Expert sessions on digital transformation and AI</p>
+                    </div>
+                </div>
+
+                <a href="tel:+918438271120" class="cta-button">📞 Book Free Consultation</a>
+                <a href="https://jbrainsolutions.com" target="_blank" class="cta-button" style="background: var(--primary);">🌐 Visit Website</a>
+
+                <div class="contact-info">
+                    <h3 class="section-title">Contact Us</h3>
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <div>
+                            <strong>Phone</strong><br>
+                            +91 84382 71120
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <div>
+                            <strong>Email</strong><br>
+                            info@jbrainsolutions.com
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <div>
+                            <strong>Location</strong><br>
+                            Millennia Business Park I, Perungudi, Chennai, India
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem; padding: 1rem;">
+                    <p style="color: #666; font-size: 0.9rem;">Made with ❤️ by Jbrain Solutions</p>
+                    <p style="color: #666; font-size: 0.8rem; margin-top: 0.5rem;">© 2024 All rights reserved</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" onclick="showPage('home')">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-label">Home</span>
+            </button>
+            <button class="nav-item" onclick="showPage('explore')">
+                <span class="nav-icon">🔍</span>
+                <span class="nav-label">Explore</span>
+            </button>
+            <button class="nav-item" onclick="showPage('learn')">
+                <span class="nav-icon">📚</span>
+                <span class="nav-label">Learn</span>
+            </button>
+            <button class="nav-item" onclick="showPage('profile')">
+                <span class="nav-icon">👤</span>
+                <span class="nav-label">About</span>
+            </button>
+        </nav>
+    </div>
+
+    <script>
+        // AI Tools Database
+        const tools = [
+            {
+                name: "ChatGPT",
+                category: "Content",
+                icon: "🤖",
+                description: "AI assistant for content creation, customer support, coding, and brainstorming",
+                url: "https://chat.openai.com",
+                pricing: "Free + $20/mo"
+            },
+            {
+                name: "Canva AI",
+                category: "Design",
+                icon: "🎨",
+                description: "AI-powered design tools for social media, presentations, and branding",
+                url: "https://canva.com",
+                pricing: "Free + Premium"
+            },
+            {
+                name: "Midjourney",
+                category: "Design",
+                icon: "🖼️",
+                description: "Create stunning AI-generated images and artwork",
+                url: "https://midjourney.com",
+                pricing: "From $10/mo"
+            },
+            {
+                name: "Copy.ai",
+                category: "Content",
+                icon: "✍️",
+                description: "AI copywriting for marketing, ads, and social media",
+                url: "https://copy.ai",
+                pricing: "Free + $49/mo"
+            },
+            {
+                name: "Jasper",
+                category: "Content",
+                icon: "📝",
+                description: "AI content platform for blogs, emails, and marketing copy",
+                url: "https://jasper.ai",
+                pricing: "From $39/mo"
+            },
+            {
+                name: "Grammarly",
+                category: "Content",
+                icon: "✅",
+                description: "AI writing assistant for grammar, tone, and clarity",
+                url: "https://grammarly.com",
+                pricing: "Free + Premium"
+            },
+            {
+                name: "Notion AI",
+                category: "Productivity",
+                icon: "📋",
+                description: "AI-powered workspace for notes, docs, and project management",
+                url: "https://notion.so",
+                pricing: "$10/mo"
+            },
+            {
+                name: "GitHub Copilot",
+                category: "Development",
+                icon: "💻",
+                description: "AI pair programmer for faster code development",
+                url: "https://github.com/features/copilot",
+                pricing: "$10/mo"
+            },
+            {
+                name: "Zapier AI",
+                category: "Productivity",
+                icon: "⚡",
+                description: "Automate workflows between your favorite apps",
+                url: "https://zapier.com",
+                pricing: "Free + Premium"
+            },
+            {
+                name: "HubSpot AI",
+                category: "Marketing",
+                icon: "📊",
+                description: "AI-powered CRM and marketing automation",
+                url: "https://hubspot.com",
+                pricing: "Free + Premium"
+            },
+            {
+                name: "Lumen5",
+                category: "Content",
+                icon: "🎬",
+                description: "Turn blog posts into engaging videos with AI",
+                url: "https://lumen5.com",
+                pricing: "Free + Premium"
+            },
+            {
+                name: "Beautiful.ai",
+                category: "Design",
+                icon: "📊",
+                description: "AI-powered presentation software",
+                url: "https://beautiful.ai",
+                pricing: "Free trial + Paid"
+            },
+            {
+                name: "Pictory",
+                category: "Content",
+                icon: "🎥",
+                description: "Create short videos from long-form content",
+                url: "https://pictory.ai",
+                pricing: "From $19/mo"
+            },
+            {
+                name: "Fireflies.ai",
+                category: "Productivity",
+                icon: "🎙️",
+                description: "AI meeting assistant that records and transcribes",
+                url: "https://fireflies.ai",
+                pricing: "Free + Premium"
+            },
+            {
+                name: "Descript",
+                category: "Content",
+                icon: "🎬",
+                description: "AI-powered video and podcast editing",
+                url: "https://descript.com",
+                pricing: "Free + Premium"
+            },
+            {
+                name: "Synthesia",
+                category: "Content",
+                icon: "👤",
+                description: "Create AI videos with virtual presenters",
+                url: "https://synthesia.io",
+                pricing: "From $30/mo"
+            },
+            {
+                name: "Runway ML",
+                category: "Design",
+                icon: "🎨",
+                description: "AI-powered creative tools for video and images",
+                url: "https://runwayml.com",
+                pricing: "Free + Premium"
+            },
+            {
+                name: "Tome",
+                category: "Productivity",
+                icon: "📖",
+                description: "AI-powered storytelling and presentations",
+                url: "https://tome.app",
+                pricing: "Free + Premium"
+            },
+            {
+                name: "Playground AI",
+                category: "Design",
+                icon: "🎨",
+                description: "Free AI image generator",
+                url: "https://playgroundai.com",
+                pricing: "Free"
+            },
+            {
+                name: "Otter.ai",
+                category: "Productivity",
+                icon: "🗣️",
+                description: "AI meeting notes and transcription",
+                url: "https://otter.ai",
+                pricing: "Free + Premium"
+            },
+            {
+                name: "Writesonic",
+                category: "Content",
+                icon: "✏️",
+                description: "AI writing for articles, ads, and landing pages",
+                url: "https://writesonic.com",
+                pricing: "Free + Premium"
+            },
+            {
+                name: "Surfer SEO",
+                category: "Marketing",
+                icon: "📈",
+                description: "AI-powered SEO content optimization",
+                url: "https://surferseo.com",
+                pricing: "From $59/mo"
+            }
+        ];
+
+        let currentFilter = 'All';
+
+        // Navigation
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update nav items
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+
+            // Load tools if exploring
+            if (pageId === 'explore') {
+                displayTools(tools);
+            }
+        }
+
+        function showExplore(category) {
+            showPage('explore');
+            filterTools(category);
+        }
+
+        // Filter tools
+        function filterTools(category) {
+            currentFilter = category;
+            
+            // Update active tab
+            document.querySelectorAll('.filter-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+
+            // Filter and display
+            const filtered = category === 'All' ? tools : tools.filter(t => t.category === category);
+            displayTools(filtered);
+        }
+
+        // Search tools
+        function searchTools(query) {
+            const filtered = tools.filter(tool => 
+                tool.name.toLowerCase().includes(query.toLowerCase()) ||
+                tool.description.toLowerCase().includes(query.toLowerCase()) ||
+                tool.category.toLowerCase().includes(query.toLowerCase())
+            );
+            displayTools(filtered);
+        }
+
+        // Display tools
+        function displayTools(toolsList) {
+            const container = document.getElementById('tools-container');
+            
+            if (toolsList.length === 0) {
+                container.innerHTML = '<p style="text-align: center; padding: 2rem; color: #666;">No tools found. Try a different search or filter.</p>';
+                return;
+            }
+
+            container.innerHTML = toolsList.map(tool => `
+                <div class="tool-card" onclick="window.open('${tool.url}', '_blank')">
+                    <div class="tool-header">
+                        <div class="tool-logo">${tool.icon}</div>
+                        <div class="tool-info">
+                            <h3>${tool.name}</h3>
+                            <span class="tool-category">${tool.category}</span>
+                        </div>
+                    </div>
+                    <p class="tool-description">${tool.description}</p>
+                    <p style="margin-top: 1rem;"><strong>💰 ${tool.pricing}</strong></p>
+                    <a href="${tool.url}" target="_blank" class="tool-link" onclick="event.stopPropagation()">Try ${tool.name} →</a>
+                </div>
+            `).join('');
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            displayTools(tools);
+        });
+    </script>
+</body>
+</html>
