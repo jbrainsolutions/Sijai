@@ -91,11 +91,38 @@ document.addEventListener('DOMContentLoaded', function() {
             // Get form data
             const formData = new FormData(this);
             
-            // Show success message (in a real app, this would send to a server)
-            alert('Thank you for your interest! Our team will contact you within 24 hours for your free consultation.');
+            // Show success message using inline notification
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
             
-            // Reset form
-            this.reset();
+            // Create success message element
+            let successMsg = this.querySelector('.form-success');
+            if (!successMsg) {
+                successMsg = document.createElement('div');
+                successMsg.className = 'form-success';
+                successMsg.setAttribute('role', 'status');
+                successMsg.setAttribute('aria-live', 'polite');
+                this.appendChild(successMsg);
+            }
+            
+            // Update button and show message
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate sending (in a real app, this would send to a server)
+            setTimeout(() => {
+                successMsg.textContent = 'Thank you for your interest! Our team will contact you within 24 hours for your free consultation.';
+                successMsg.style.display = 'block';
+                submitBtn.textContent = 'Request Sent!';
+                
+                // Reset form after delay
+                setTimeout(() => {
+                    this.reset();
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    successMsg.style.display = 'none';
+                }, 3000);
+            }, 500);
         });
     }
 
