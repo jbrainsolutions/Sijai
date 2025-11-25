@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sijai - Discover and master AI tools that transform your business. Curated AI tools for entrepreneurs, small businesses, and startups.">
+    <meta name="keywords" content="AI tools, artificial intelligence, business tools, entrepreneurs, startups, automation, productivity">
+    <title>Sijai - AI Tools for Business Transformation</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <span class="logo-icon">🤖</span>
+                <span class="logo-text">Sijai</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#tools">AI Tools</a></li>
+                <li><a href="#tutorials">Tutorials</a></li>
+                <li><a href="#consultation" class="btn btn-primary">Free Consultation</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Discover and Master AI Tools That Transform Your Business</h1>
+                <p class="hero-subtitle">Sijai curates the best artificial intelligence tools for entrepreneurs, small businesses, and startups. Every day, we highlight a powerful tool with practical use cases you can implement immediately.</p>
+                <div class="hero-cta">
+                    <a href="#tools" class="btn btn-primary btn-large">Explore AI Tools</a>
+                    <a href="#consultation" class="btn btn-secondary btn-large">Get Free Consultation</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">20+</span>
+                        <span class="stat-label">Curated Tools</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Free Tutorials</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">Categories</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Sijai?</h2>
+            <p class="section-subtitle">Everything you need to leverage AI for your business growth</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>20+ Curated AI Tools</h3>
+                    <p>Hand-picked tools vetted for quality, reliability, and business impact. We do the research so you don't have to.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Step-by-Step Tutorials</h3>
+                    <p>Clear, actionable guides that help you master each tool quickly. No technical background required.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3>Business Use Cases</h3>
+                    <p>Real-world examples showing exactly how to apply AI tools to solve common business challenges.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Free Expert Consultation</h3>
+                    <p>Get personalized advice on which tools fit your specific needs. Our experts are here to help.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="categories">
+        <div class="container">
+            <h2 class="section-title">Explore by Category</h2>
+            <p class="section-subtitle">Find the perfect AI tools for your specific needs</p>
+            <div class="categories-grid">
+                <div class="category-card" data-category="marketing">
+                    <div class="category-icon">📈</div>
+                    <h3>Marketing & Sales</h3>
+                    <p>AI-powered tools to generate leads, create campaigns, and close more deals.</p>
+                    <span class="tool-count">5 Tools</span>
+                </div>
+                <div class="category-card" data-category="design">
+                    <div class="category-icon">🎨</div>
+                    <h3>Design & Creativity</h3>
+                    <p>Create stunning visuals, logos, and graphics without design skills.</p>
+                    <span class="tool-count">4 Tools</span>
+                </div>
+                <div class="category-card" data-category="content">
+                    <div class="category-icon">✍️</div>
+                    <h3>Content Creation</h3>
+                    <p>Write compelling copy, articles, and social media posts in minutes.</p>
+                    <span class="tool-count">5 Tools</span>
+                </div>
+                <div class="category-card" data-category="development">
+                    <div class="category-icon">💻</div>
+                    <h3>Development & Code</h3>
+                    <p>Build apps, automate tasks, and solve coding challenges faster.</p>
+                    <span class="tool-count">4 Tools</span>
+                </div>
+                <div class="category-card" data-category="productivity">
+                    <div class="category-icon">⚡</div>
+                    <h3>Productivity & Automation</h3>
+                    <p>Streamline workflows, automate repetitive tasks, and save hours daily.</p>
+                    <span class="tool-count">4 Tools</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Tools Section -->
+    <section id="tools" class="tools">
+        <div class="container">
+            <h2 class="section-title">Curated AI Tools</h2>
+            <p class="section-subtitle">22 powerful tools to transform your business operations</p>
+            
+            <!-- Filter Buttons -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Tools</button>
+                <button class="filter-btn" data-filter="marketing">Marketing & Sales</button>
+                <button class="filter-btn" data-filter="design">Design & Creativity</button>
+                <button class="filter-btn" data-filter="content">Content Creation</button>
+                <button class="filter-btn" data-filter="development">Development & Code</button>
+                <button class="filter-btn" data-filter="productivity">Productivity & Automation</button>
+            </div>
+
+            <div class="tools-grid">
+                <!-- Marketing & Sales Tools -->
+                <div class="tool-card" data-category="marketing">
+                    <div class="tool-header">
+                        <span class="tool-badge">Marketing & Sales</span>
+                        <span class="tool-rating">⭐ 4.8</span>
+                    </div>
+                    <h3 class="tool-name">HubSpot AI</h3>
+                    <p class="tool-description">AI-powered CRM with predictive lead scoring, email automation, and sales forecasting to close more deals.</p>
+                    <div class="tool-use-case">
+                        <strong>Use Case:</strong> Automate follow-up emails and prioritize high-value leads
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <div class="tool-card" data-category="marketing">
+                    <div class="tool-header">
+                        <span class="tool-badge">Marketing & Sales</span>
+                        <span class="tool-rating">⭐ 4.7</span>
+                    </div>
+                    <h3 class="tool-name">Jasper AI</h3>
+                    <p class="tool-description">Create high-converting marketing copy, ads, and landing pages using advanced AI language models.</p>
+                    <div class="tool-use-case">
+                        <strong>Use Case:</strong> Generate Facebook ads that convert 3x better
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <div class="tool-card" data-category="marketing">
+                    <div class="tool-header">
+                        <span class="tool-badge">Marketing & Sales</span>
+                        <span class="tool-rating">⭐ 4.6</span>
+                    </div>
+                    <h3 class="tool-name">Salesforce Einstein</h3>
+                    <p class="tool-description">AI analytics platform that predicts customer behavior and recommends next best actions for sales teams.</p>
+                    <div class="tool-use-case">
+                        <strong>Use Case:</strong> Predict which deals are most likely to close
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <div class="tool-card" data-category="marketing">
+                    <div class="tool-header">
+                        <span class="tool-badge">Marketing & Sales</span>
+                        <span class="tool-rating">⭐ 4.5</span>
+                    </div>
+                    <h3 class="tool-name">Drift</h3>
+                    <p class="tool-description">Conversational AI chatbots that qualify leads, book meetings, and provide 24/7 customer support.</p>
+                    <div class="tool-use-case">
+                        <strong>Use Case:</strong> Convert website visitors into qualified leads automatically
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <div class="tool-card" data-category="marketing">
+                    <div class="tool-header">
+                        <span class="tool-badge">Marketing & Sales</span>
+                        <span class="tool-rating">⭐ 4.6</span>
+                    </div>
+                    <h3 class="tool-name">Mailchimp AI</h3>
+                    <p class="tool-description">Smart email marketing with AI-driven send time optimization, content suggestions, and audience segmentation.</p>
+                    <div class="tool-use-case">
+                        <strong>Use Case:</strong> Increase email open rates by 25% with optimal send times
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <!-- Design & Creativity Tools -->
+                <div class="tool-card" data-category="design">
+                    <div class="tool-header">
+                        <span class="tool-badge">Design & Creativity</span>
+                        <span class="tool-rating">⭐ 4.9</span>
+                    </div>
+                    <h3 class="tool-name">Midjourney</h3>
+                    <p class="tool-description">Create stunning, photorealistic images and artwork from text descriptions using cutting-edge AI.</p>
+                    <div class="tool-use-case">
+                        <strong>Use Case:</strong> Generate unique product mockups and marketing visuals
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <div class="tool-card" data-category="design">
+                    <div class="tool-header">
+                        <span class="tool-badge">Design & Creativity</span>
+                        <span class="tool-rating">⭐ 4.8</span>
+                    </div>
+                    <h3 class="tool-name">Canva AI</h3>
+                    <p class="tool-description">AI-enhanced design platform with Magic Write, background remover, and smart design suggestions.</p>
+                    <div class="tool-use-case">
+                        <strong>Use Case:</strong> Create professional social media graphics in minutes
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <div class="tool-card" data-category="design">
+                    <div class="tool-header">
+                        <span class="tool-badge">Design & Creativity</span>
+                        <span class="tool-rating">⭐ 4.7</span>
+                    </div>
+                    <h3 class="tool-name">DALL-E 3</h3>
+                    <p class="tool-description">OpenAI's advanced image generation tool for creating detailed, accurate images from natural language.</p>
+                    <div class="tool-use-case">
+                        <strong>Use Case:</strong> Design custom illustrations for presentations and websites
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <div class="tool-card" data-category="design">
+                    <div class="tool-header">
+                        <span class="tool-badge">Design & Creativity</span>
+                        <span class="tool-rating">⭐ 4.6</span>
+                    </div>
+                    <h3 class="tool-name">Adobe Firefly</h3>
+                    <p class="tool-description">Generative AI integrated into Adobe Creative Suite for image generation, editing, and enhancement.</p>
+                    <div class="tool-use-case">
+                        <strong>Use Case:</strong> Extend images and remove unwanted objects seamlessly
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <!-- Content Creation Tools -->
+                <div class="tool-card" data-category="content">
+                    <div class="tool-header">
+                        <span class="tool-badge">Content Creation</span>
+                        <span class="tool-rating">⭐ 4.9</span>
+                    </div>
+                    <h3 class="tool-name">ChatGPT</h3>
+                    <p class="tool-description">Versatile AI assistant for writing, brainstorming, research, and solving complex business problems.</p>
+                    <div class="tool-use-case">
+                        <strong>Use Case:</strong> Draft blog posts, emails, and business documents instantly
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <div class="tool-card" data-category="content">
+                    <div class="tool-header">
+                        <span class="tool-badge">Content Creation</span>
+                        <span class="tool-rating">⭐ 4.8</span>
+                    </div>
+                    <h3 class="tool-name">Claude</h3>
+                    <p class="tool-description">Anthropic's AI assistant excelling at long-form content, analysis, and nuanced business writing.</p>
+                    <div class="tool-use-case">
+                        <strong>Use Case:</strong> Create detailed reports and strategic business plans
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <div class="tool-card" data-category="content">
+                    <div class="tool-header">
+                        <span class="tool-badge">Content Creation</span>
+                        <span class="tool-rating">⭐ 4.7</span>
+                    </div>
+                    <h3 class="tool-name">Copy.ai</h3>
+                    <p class="tool-description">AI copywriting tool specialized for marketing content, product descriptions, and social media posts.</p>
+                    <div class="tool-use-case">
+                        <strong>Use Case:</strong> Generate 100 product descriptions in under an hour
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <div class="tool-card" data-category="content">
+                    <div class="tool-header">
+                        <span class="tool-badge">Content Creation</span>
+                        <span class="tool-rating">⭐ 4.6</span>
+                    </div>
+                    <h3 class="tool-name">Descript</h3>
+                    <p class="tool-description">AI-powered video and podcast editing with automatic transcription, overdub, and studio sound.</p>
+                    <div class="tool-use-case">
+                        <strong>Use Case:</strong> Edit podcasts by editing text and remove filler words automatically
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <div class="tool-card" data-category="content">
+                    <div class="tool-header">
+                        <span class="tool-badge">Content Creation</span>
+                        <span class="tool-rating">⭐ 4.5</span>
+                    </div>
+                    <h3 class="tool-name">Synthesia</h3>
+                    <p class="tool-description">Create professional AI videos with virtual presenters in 120+ languages without filming.</p>
+                    <div class="tool-use-case">
+                        <strong>Use Case:</strong> Produce training videos without expensive video production
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <!-- Development & Code Tools -->
+                <div class="tool-card" data-category="development">
+                    <div class="tool-header">
+                        <span class="tool-badge">Development & Code</span>
+                        <span class="tool-rating">⭐ 4.9</span>
+                    </div>
+                    <h3 class="tool-name">GitHub Copilot</h3>
+                    <p class="tool-description">AI pair programmer that suggests code completions, entire functions, and helps debug issues.</p>
+                    <div class="tool-use-case">
+                        <strong>Use Case:</strong> Write code 55% faster with AI-powered suggestions
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <div class="tool-card" data-category="development">
+                    <div class="tool-header">
+                        <span class="tool-badge">Development & Code</span>
+                        <span class="tool-rating">⭐ 4.8</span>
+                    </div>
+                    <h3 class="tool-name">Cursor</h3>
+                    <p class="tool-description">AI-first code editor built for pair programming with powerful AI that understands your entire codebase.</p>
+                    <div class="tool-use-case">
+                        <strong>Use Case:</strong> Refactor legacy code with AI understanding of context
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <div class="tool-card" data-category="development">
+                    <div class="tool-header">
+                        <span class="tool-badge">Development & Code</span>
+                        <span class="tool-rating">⭐ 4.7</span>
+                    </div>
+                    <h3 class="tool-name">Replit AI</h3>
+                    <p class="tool-description">Cloud development environment with AI code generation, debugging, and deployment features.</p>
+                    <div class="tool-use-case">
+                        <strong>Use Case:</strong> Build and deploy web apps without local setup
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <div class="tool-card" data-category="development">
+                    <div class="tool-header">
+                        <span class="tool-badge">Development & Code</span>
+                        <span class="tool-rating">⭐ 4.6</span>
+                    </div>
+                    <h3 class="tool-name">Tabnine</h3>
+                    <p class="tool-description">AI code completion trained on your codebase for personalized, context-aware suggestions.</p>
+                    <div class="tool-use-case">
+                        <strong>Use Case:</strong> Maintain coding standards with team-trained AI
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <!-- Productivity & Automation Tools -->
+                <div class="tool-card" data-category="productivity">
+                    <div class="tool-header">
+                        <span class="tool-badge">Productivity & Automation</span>
+                        <span class="tool-rating">⭐ 4.8</span>
+                    </div>
+                    <h3 class="tool-name">Notion AI</h3>
+                    <p class="tool-description">AI-enhanced workspace for notes, docs, and projects with smart writing assistance and summaries.</p>
+                    <div class="tool-use-case">
+                        <strong>Use Case:</strong> Summarize meeting notes and generate action items automatically
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <div class="tool-card" data-category="productivity">
+                    <div class="tool-header">
+                        <span class="tool-badge">Productivity & Automation</span>
+                        <span class="tool-rating">⭐ 4.7</span>
+                    </div>
+                    <h3 class="tool-name">Zapier AI</h3>
+                    <p class="tool-description">Automate workflows between 5000+ apps with AI-powered automation suggestions and natural language setup.</p>
+                    <div class="tool-use-case">
+                        <strong>Use Case:</strong> Connect your CRM to email marketing automatically
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <div class="tool-card" data-category="productivity">
+                    <div class="tool-header">
+                        <span class="tool-badge">Productivity & Automation</span>
+                        <span class="tool-rating">⭐ 4.6</span>
+                    </div>
+                    <h3 class="tool-name">Otter.ai</h3>
+                    <p class="tool-description">AI meeting assistant that transcribes conversations, generates summaries, and extracts action items.</p>
+                    <div class="tool-use-case">
+                        <strong>Use Case:</strong> Never miss important meeting details with automatic transcription
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <div class="tool-card" data-category="productivity">
+                    <div class="tool-header">
+                        <span class="tool-badge">Productivity & Automation</span>
+                        <span class="tool-rating">⭐ 4.5</span>
+                    </div>
+                    <h3 class="tool-name">Mem AI</h3>
+                    <p class="tool-description">Self-organizing workspace that uses AI to connect your notes, tasks, and knowledge automatically.</p>
+                    <div class="tool-use-case">
+                        <strong>Use Case:</strong> Build a personal knowledge base that surfaces relevant info
+                    </div>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tutorials Section -->
+    <section id="tutorials" class="tutorials">
+        <div class="container">
+            <h2 class="section-title">Step-by-Step Tutorials</h2>
+            <p class="section-subtitle">Learn to implement AI tools with our beginner-friendly guides</p>
+            <div class="tutorials-grid">
+                <div class="tutorial-card">
+                    <div class="tutorial-badge">Beginner</div>
+                    <h3>Getting Started with ChatGPT for Business</h3>
+                    <p>Learn the fundamentals of prompt engineering and discover 10 ways to use ChatGPT in your daily business operations.</p>
+                    <div class="tutorial-meta">
+                        <span>📖 15 min read</span>
+                        <span>🎯 Content Creation</span>
+                    </div>
+                    <a href="#" class="btn btn-outline">Read Tutorial</a>
+                </div>
+                <div class="tutorial-card">
+                    <div class="tutorial-badge">Intermediate</div>
+                    <h3>Automating Your Sales Pipeline with HubSpot AI</h3>
+                    <p>Set up AI-powered lead scoring, automated follow-ups, and predictive deal forecasting in under an hour.</p>
+                    <div class="tutorial-meta">
+                        <span>📖 25 min read</span>
+                        <span>🎯 Marketing & Sales</span>
+                    </div>
+                    <a href="#" class="btn btn-outline">Read Tutorial</a>
+                </div>
+                <div class="tutorial-card">
+                    <div class="tutorial-badge">Beginner</div>
+                    <h3>Creating Social Media Graphics with Canva AI</h3>
+                    <p>Master Canva's AI features to create professional social media posts, stories, and ads without design skills.</p>
+                    <div class="tutorial-meta">
+                        <span>📖 20 min read</span>
+                        <span>🎯 Design & Creativity</span>
+                    </div>
+                    <a href="#" class="btn btn-outline">Read Tutorial</a>
+                </div>
+                <div class="tutorial-card">
+                    <div class="tutorial-badge">Advanced</div>
+                    <h3>Building Automated Workflows with Zapier AI</h3>
+                    <p>Connect your business tools and create sophisticated automations using natural language descriptions.</p>
+                    <div class="tutorial-meta">
+                        <span>📖 30 min read</span>
+                        <span>🎯 Productivity</span>
+                    </div>
+                    <a href="#" class="btn btn-outline">Read Tutorial</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation Section -->
+    <section id="consultation" class="consultation">
+        <div class="container">
+            <div class="consultation-content">
+                <h2>Get Your Free Expert Consultation</h2>
+                <p>Not sure which AI tools are right for your business? Our experts will analyze your needs and recommend the perfect toolkit to transform your operations.</p>
+                <div class="consultation-features">
+                    <div class="consultation-feature">
+                        <span class="feature-check">✓</span>
+                        <span>Personalized tool recommendations</span>
+                    </div>
+                    <div class="consultation-feature">
+                        <span class="feature-check">✓</span>
+                        <span>Implementation roadmap</span>
+                    </div>
+                    <div class="consultation-feature">
+                        <span class="feature-check">✓</span>
+                        <span>ROI analysis</span>
+                    </div>
+                    <div class="consultation-feature">
+                        <span class="feature-check">✓</span>
+                        <span>No obligation, 100% free</span>
+                    </div>
+                </div>
+                <form class="consultation-form" id="consultationForm">
+                    <div class="form-row">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="text" placeholder="Company Name">
+                        <select required>
+                            <option value="">Select Your Industry</option>
+                            <option value="ecommerce">E-commerce</option>
+                            <option value="saas">SaaS / Tech</option>
+                            <option value="marketing">Marketing Agency</option>
+                            <option value="consulting">Consulting</option>
+                            <option value="retail">Retail</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="finance">Finance</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <textarea placeholder="Tell us about your business challenges and goals..." rows="4" required></textarea>
+                    <button type="submit" class="btn btn-primary btn-large">Request Free Consultation</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span class="logo-icon">🤖</span>
+                        <span class="logo-text">Sijai</span>
+                    </a>
+                    <p>Discover and master AI tools that transform your business.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Categories</h4>
+                        <ul>
+                            <li><a href="#categories">Marketing & Sales</a></li>
+                            <li><a href="#categories">Design & Creativity</a></li>
+                            <li><a href="#categories">Content Creation</a></li>
+                            <li><a href="#categories">Development & Code</a></li>
+                            <li><a href="#categories">Productivity</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#tools">AI Tools</a></li>
+                            <li><a href="#tutorials">Tutorials</a></li>
+                            <li><a href="#consultation">Consultation</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sijai. All rights reserved. | Built for entrepreneurs who want to leverage AI.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
